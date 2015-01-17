@@ -21,14 +21,15 @@ RUN yum install -y \
     libicu-devel \
     libmcrypt-devel \
     ImageMagick-devel \
+    librabbitmq-devel \
     gcc-c++
 
 RUN git clone https://github.com/fpoirotte/phpfarm.git /opt/phpfarm
 COPY configuration /
 
-RUN /opt/phpfarm/src/main.sh 5.6.4
+ENV PATH $PATH:/opt/phpfarm/inst/current/bin
+RUN /opt/phpfarm/src/main.sh 5.6.4-pear
 RUN /opt/phpfarm/inst/bin/switch-phpfarm 5.6.4
 
 ENV TERM xterm
-ENV PATH $PATH:/opt/phpfarm/inst/current/bin
 

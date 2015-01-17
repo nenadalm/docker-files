@@ -19,10 +19,14 @@ function install_extension {
     make install
     cd ../
 }
-sed -i "s/php-5.4.17/php-${1}/" "${INSTALLATION_DIR}/inst/php-${1}/etc/php.ini"
+
+export PATH=$PATH:${INSTALLATION_DIR}/inst/bin
+
 cp "${INSTALLATION_DIR}/inst/php-${1}/etc/php.ini" "${INSTALLATION_DIR}/inst/php-${1}/lib/"
 mkdir -p $EXTENSIONS_DIR
 cd $EXTENSIONS_DIR
+
+${INSTALLATION_DIR}/inst/php-${1}/bin/pecl install amqp
 
 if [[ ${MAJOR} -le 5 && ${MINOR} -le 4 ]]; then
     if [[ ! -d './APC-3.1.13' ]]; then
@@ -73,7 +77,4 @@ if [[ ! -d "./imagick-3.1.2" ]]; then
     tar -xf ./imagick-3.1.2.tgz
 fi
 install_extension imagick-3.1.2
-
-cp "${INSTALLATION_DIR}/inst/php-${1}/bin/php-cgi" /var/www/cgi-bin/php-cgi-${1}
-ln "/var/www/cgi-bin/php-cgi-${1}" "/var/www/cgi-bin/php-cgi-${MAJOR}.${MINOR}"
 

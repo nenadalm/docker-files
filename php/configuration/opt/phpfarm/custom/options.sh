@@ -1,22 +1,26 @@
 #!/usr/bin/env bash
 
 configoptions="
---enable-intl
---enable-mbstring
+--enable-exif
+--with-zlib
 --enable-soap
+--with-mcrypt
 --enable-sockets
 --with-curl
---with-gd
---with-jpeg-dir=/usr
---with-libdir=lib64
---with-mcrypt
---with-mysql
---with-mysqli
+--enable-intl
 --with-openssl
 --with-pdo-mysql
 --with-pdo-pgsql
 --with-pgsql
---with-zlib
+--enable-mbstring
+--with-mysql
+--with-libdir=lib64
+--with-mysqli
+--with-jpeg-dir=/usr
+--with-gd
+--enable-gd-native-ttf
+--with-freetype-dir
+--enable-zip
 --enable-bcmath
 --enable-calendar
 --with-gettext
@@ -25,6 +29,4 @@ configoptions="
 --enable-sysvsem
 --enable-sysvshm
 --enable-pcntl
---enable-zip
 "
-
