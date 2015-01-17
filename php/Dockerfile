@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM fedora:20
 
 RUN yum install -y \
     git \
@@ -24,8 +24,11 @@ RUN yum install -y \
     gcc-c++
 
 RUN git clone https://github.com/fpoirotte/phpfarm.git /opt/phpfarm
-RUN /opt/phpfarm/src/main.sh 5.4.35
-RUN /opt/phpfarm/inst/bin/switch-phpfarm 5.4.35
-
 COPY configuration /
+
+RUN /opt/phpfarm/src/main.sh 5.6.4
+RUN /opt/phpfarm/inst/bin/switch-phpfarm 5.6.4
+
+ENV TERM xterm
+ENV PATH $PATH:/opt/phpfarm/inst/current/bin
 
