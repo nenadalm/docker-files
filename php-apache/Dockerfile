@@ -1,4 +1,4 @@
-FROM nenadalm:php
+FROM nenadalm/php:latest
 
 RUN yum upgrade -y
 RUN yum install -y httpd

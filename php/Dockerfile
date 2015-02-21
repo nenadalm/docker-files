@@ -1,4 +1,4 @@
-FROM fedora:20
+FROM nenadalm/fedora
 
 RUN yum install -y \
     git \

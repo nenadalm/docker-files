@@ -1,4 +1,4 @@
-FROM fedora:20
+FROM nenadalm/fedora
 
 RUN yum upgrade -y
 RUN yum install -y \
