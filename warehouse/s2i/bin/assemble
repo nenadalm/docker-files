@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu
+
+working_directory=$(pwd)
+source_directory=/tmp/src
+
+cd "${source_directory}"
+DEBUG=1 lein ring uberjar
+cp target/warehouse-0.1.0-SNAPSHOT-standalone.jar "${working_directory}/warehouse.jar"
+cd "${working_directory}"
+
