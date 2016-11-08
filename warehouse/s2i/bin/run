@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
+source /etc/profile.d/phantomjs.sh
 java -jar ./warehouse.jar
 
