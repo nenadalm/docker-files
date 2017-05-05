@@ -8,5 +8,6 @@ source_directory=/tmp/src/backend
 cd "${source_directory}"
 DEBUG=1 lein ring uberjar
 cp target/warehouse-0.1.0-SNAPSHOT-standalone.jar "${working_directory}/warehouse.jar"
+cp config.edn "${working_directory}/config.edn"
 cd "${working_directory}"
 
