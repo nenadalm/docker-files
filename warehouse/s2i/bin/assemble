@@ -3,7 +3,7 @@
 set -eu
 
 working_directory=$(pwd)
-source_directory=/tmp/src
+source_directory=/tmp/src/backend
 
 cd "${source_directory}"
 DEBUG=1 lein ring uberjar
